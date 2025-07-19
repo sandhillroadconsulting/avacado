@@ -280,7 +280,7 @@ function App() {
             
             {/* Right Column - Map */}
             <div className="relative">
-              <div className="absolute inset-0 sm:-inset-4 lg:-inset-8 border-2 border-avocado opacity-20" style={{
+              <div className="absolute -inset-8 border-2 border-avocado opacity-20" style={{
                 clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))'
               }}></div>
               
@@ -288,10 +288,10 @@ function App() {
                 <RealWorldMap audience={audience} />
               </div>
               
-              <div className="absolute top-0 left-0 w-3 h-3 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border-l-2 border-t-2 border-avocado opacity-40"></div>
-              <div className="absolute top-0 right-0 w-3 h-3 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border-r-2 border-t-2 border-avocado opacity-40"></div>
-              <div className="absolute bottom-0 left-0 w-3 h-3 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border-l-2 border-b-2 border-avocado opacity-40"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border-r-2 border-b-2 border-avocado opacity-40"></div>
+              <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-avocado opacity-40"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-avocado opacity-40"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-avocado opacity-40"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-avocado opacity-40"></div>
               
               <div className="absolute inset-0 bg-avocado opacity-5 rounded-lg blur-xl transform scale-105 -z-10" />
             </div>
