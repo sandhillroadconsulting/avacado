@@ -125,15 +125,39 @@ const howItWorksSteps = [
   }
 ];
 
-const indianTalentPoints = [
-  "120 unicorns scaled by Indian operators",
-  "Largest digital workforce after the US",
-  "Cost-effective without compromise",
-  "Cross-border collaboration experience",
-  "3rd largest startup ecosystem after US & China",
-  "Strong English proficiency",
-  "Proven track record in global companies",
-  "Advanced technical expertise"
+const indianTalentCategories = [
+  {
+    title: "Market Leadership",
+    points: [
+      "120 unicorns scaled by Indian operators",
+      "3rd largest startup ecosystem after US & China",
+      "Largest digital workforce after the US"
+    ]
+  },
+  {
+    title: "Technical Excellence", 
+    points: [
+      "Advanced technical expertise across domains",
+      "Strong problem-solving capabilities",
+      "Proven track record in global companies"
+    ]
+  },
+  {
+    title: "Business Value",
+    points: [
+      "Cost-effective without compromise",
+      "Cross-border collaboration experience",
+      "Strong English proficiency"
+    ]
+  },
+  {
+    title: "Global Integration",
+    points: [
+      "Experience with international standards",
+      "Cultural adaptability and timezone flexibility",
+      "Remote-first work methodology"
+    ]
+  }
 ];
 
 function App() {
@@ -146,13 +170,13 @@ function App() {
   const currentContent = content[audience];
   const currentCards = audience === 'employer' ? employerCards : employeeCards;
 
-  // Auto-scroll carousel for Indian talent points
+  // Auto-scroll carousel for Indian talent categories
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentCarouselIndex((prevIndex) => 
-        (prevIndex + 1) % indianTalentPoints.length
+        (prevIndex + 1) % indianTalentCategories.length
       );
-    }, 2000); // Change every 2 seconds
+    }, 3000); // Change every 3 seconds (longer for more content)
 
     return () => clearInterval(interval);
   }, []);
@@ -340,33 +364,53 @@ function App() {
                   <h3 className="text-2xl font-bold text-white mb-6">Why Indian Talent?</h3>
                   
                   {/* Moving Carousel */}
-                  <div className="relative h-16 overflow-hidden rounded-lg">
-                    <div 
-                      className="flex transition-transform duration-500 ease-in-out"
-                      style={{
-                        transform: `translateX(-${currentCarouselIndex * (100 / indianTalentPoints.length)}%)`,
-                        width: `${indianTalentPoints.length * 100}%`
-                      }}
-                    >
-                      {indianTalentPoints.map((point, index) => (
-                        <div 
-                          key={index}
-                          className="flex items-center justify-center w-full h-16"
-                          style={{ width: `${100 / indianTalentPoints.length}%` }}
-                        >
-                          <div className="flex items-center space-x-3">
-                            <div className="w-3 h-3 bg-avocado rounded-full animate-pulse"></div>
-                            <span className="text-gray-200 text-lg font-medium text-center">
-                              {point}
-                            </span>
+                  <div className="relative">
+                    <div className="relative h-48 overflow-hidden">
+                      <div 
+                        className="flex transition-transform duration-500 ease-in-out h-full"
+                        style={{
+                          transform: `translateX(-${currentCarouselIndex * (100 / indianTalentCategories.length)}%)`,
+                          width: `${indianTalentCategories.length * 100}%`
+                        }}
+                      >
+                        {indianTalentCategories.map((category, index) => (
+                          <div 
+                            key={index}
+                            className="w-full h-full px-4"
+                            style={{ width: `${100 / indianTalentCategories.length}%` }}
+                          >
+                            <div className="relative group h-full">
+                              <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
+                                clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
+                              }}></div>
+                              
+                              <div className="relative p-6 h-full flex flex-col justify-center">
+                                <div className="w-3 h-3 bg-avocado transform rotate-45 mb-4 relative">
+                                  <div className="absolute inset-0.5 bg-avocado-dark transform -rotate-45"></div>
+                                </div>
+                                
+                                <h4 className="text-xl font-semibold text-white mb-3">{category.title}</h4>
+                                
+                                <div className="space-y-2">
+                                  {category.points.map((point, pointIndex) => (
+                                    <div key={pointIndex} className="flex items-start space-x-3">
+                                      <div className="w-2 h-2 bg-avocado rounded-full mt-2 flex-shrink-0"></div>
+                                      <span className="text-gray-300 text-sm leading-relaxed">
+                                        {point}
+                                      </span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                     
                     {/* Carousel indicators */}
-                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                      {indianTalentPoints.map((_, index) => (
+                    <div className="mt-6 flex justify-center space-x-2">
+                      {indianTalentCategories.map((_, index) => (
                         <button
                           key={index}
                           onClick={() => setCurrentCarouselIndex(index)}

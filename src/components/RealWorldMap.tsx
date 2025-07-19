@@ -12,13 +12,13 @@ const BERLIN_POSITION = { x: "48.89%", y: "29%" };    // 440/900 * 100, 145/500 
 const RealWorldMap = ({ audience }: RealWorldMapProps) => {
 
   return (
-    <div className="w-full h-[600px] relative bg-gray-900 rounded-lg overflow-hidden">
+    <div className="w-full h-[450px] sm:h-[540px] lg:h-[600px] relative bg-gray-900 rounded-lg overflow-hidden">
       {/* Real Geographic Map */}
       <div className="w-full h-full relative">
         <img 
           src="/europe_india_map.png" 
           alt="Cross-Border Talent Migration Map showing Europe in green and India in orange"
-          className="w-full h-full object-cover rounded-lg scale-75 sm:scale-90 lg:scale-100 origin-center"
+          className="w-full h-full object-cover rounded-lg scale-100 sm:scale-90 lg:scale-100 origin-center"
           style={{
             filter: 'brightness(1.1) contrast(1.05)'
           }}
