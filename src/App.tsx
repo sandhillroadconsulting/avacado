@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RealWorldMap from './components/RealWorldMap';
 import AudienceToggle from './components/AudienceToggle';
+import TalentCarousel from './components/TalentCarousel';
 import type { Audience } from './components/AudienceToggle';
 
 const content = {
@@ -305,45 +306,9 @@ function App() {
             ))}
           </div>
 
-          {/* Why Indian Talent section for employers */}
+          {/* Why Talent Carousel section for employers */}
           {audience === 'employer' && (
-            <div className="mt-16 max-w-4xl mx-auto">
-              <div className="relative group">
-                <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
-                  clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
-                }}></div>
-                
-                <div className="relative p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">Why Indian Talent?</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-avocado rounded-full"></div>
-                        <span className="text-gray-200">120 unicorns scaled by Indian operators</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-avocado rounded-full"></div>
-                        <span className="text-gray-200">Largest digital workforce after the US</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-avocado rounded-full"></div>
-                        <span className="text-gray-200">Cost-effective without compromise</span>
-                      </div>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-avocado rounded-full"></div>
-                        <span className="text-gray-200">Cross-border collaboration experience</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-avocado rounded-full"></div>
-                        <span className="text-gray-200">3rd largest startup ecosystem after US & China</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TalentCarousel />
           )}
         </div>
       </section>
