@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RealWorldMap from './components/RealWorldMap';
 import AudienceToggle from './components/AudienceToggle';
-import TalentCarousel from './components/TalentCarousel';
 import type { Audience } from './components/AudienceToggle';
 
 const content = {
@@ -126,14 +125,37 @@ const howItWorksSteps = [
   }
 ];
 
+const indianTalentPoints = [
+  "120 unicorns scaled by Indian operators",
+  "Largest digital workforce after the US",
+  "Cost-effective without compromise",
+  "Cross-border collaboration experience",
+  "3rd largest startup ecosystem after US & China",
+  "Strong English proficiency",
+  "Proven track record in global companies",
+  "Advanced technical expertise"
+];
+
 function App() {
   const [audience, setAudience] = useState<Audience>('employer');
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
   const [expandedProblem, setExpandedProblem] = useState<string | null>(null);
   const [expandedFact, setExpandedFact] = useState<string | null>(null);
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
   
   const currentContent = content[audience];
   const currentCards = audience === 'employer' ? employerCards : employeeCards;
+
+  // Auto-scroll carousel for Indian talent points
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCarouselIndex((prevIndex) => 
+        (prevIndex + 1) % indianTalentPoints.length
+      );
+    }, 2000); // Change every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const toggleCard = (cardTitle: string) => {
     setExpandedCard(expandedCard === cardTitle ? null : cardTitle);
@@ -306,14 +328,67 @@ function App() {
             ))}
           </div>
 
-          {/* Why Talent Carousel section for employers */}
+          {/* Why Indian Talent section for employers with moving carousel */}
           {audience === 'employer' && (
-            <TalentCarousel />
+            <div className="mt-16 max-w-4xl mx-auto">
+              <div className="relative group">
+                <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
+                  clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
+                }}></div>
+                
+                <div className="relative p-8">
+                  <h3 className="text-2xl font-bold text-white mb-6">Why Indian Talent?</h3>
+                  
+                  {/* Moving Carousel */}
+                  <div className="relative h-16 overflow-hidden rounded-lg bg-gray-800 bg-opacity-30">
+                    <div 
+                      className="flex transition-transform duration-500 ease-in-out"
+                      style={{
+                        transform: `translateX(-${currentCarouselIndex * (100 / indianTalentPoints.length)}%)`,
+                        width: `${indianTalentPoints.length * 100}%`
+                      }}
+                    >
+                      {indianTalentPoints.map((point, index) => (
+                        <div 
+                          key={index}
+                          className="flex items-center justify-center w-full h-16"
+                          style={{ width: `${100 / indianTalentPoints.length}%` }}
+                        >
+                          <div className="flex items-center space-x-3">
+                            <div className="w-3 h-3 bg-avocado rounded-full animate-pulse"></div>
+                            <span className="text-gray-200 text-lg font-medium text-center">
+                              {point}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Carousel indicators */}
+                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                      {indianTalentPoints.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentCarouselIndex(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            index === currentCarouselIndex
+                              ? 'bg-avocado scale-125'
+                              : 'bg-gray-500 hover:bg-gray-400'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
         </div>
       </section>
 
-      {/* Global Talent Market Facts */}
+      {/* COMMENTED OUT SECTIONS - EVERYTHING BELOW THE "WHY INDIAN TALENT" CAROUSEL */}
+      
+      {/* 
       <section className="relative z-10 py-24 bg-black bg-opacity-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -367,7 +442,6 @@ function App() {
         </div>
       </section>
 
-      {/* Problems We Solve */}
       <section className="relative z-10 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -411,7 +485,6 @@ function App() {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="relative z-10 py-24 bg-black bg-opacity-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -440,7 +513,6 @@ function App() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="relative z-10 py-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -508,7 +580,6 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="relative z-10 mt-24 pb-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="border-t border-gray-700 pt-8 relative">
@@ -536,6 +607,7 @@ function App() {
           </div>
         </div>
       </footer>
+      */}
     </div>
   );
 }
