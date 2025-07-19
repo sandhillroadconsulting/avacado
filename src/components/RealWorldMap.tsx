@@ -12,7 +12,7 @@ const BERLIN_POSITION = { x: "48.89%", y: "29%" };    // 440/900 * 100, 145/500 
 const RealWorldMap = ({ audience }: RealWorldMapProps) => {
 
   return (
-    <div className="w-full h-[300px] sm:h-[450px] lg:h-[600px] relative bg-gray-900 rounded-lg overflow-hidden">
+    <div className="w-full h-[300px] sm:h-[450px] lg:h-[600px] relative bg-transparent sm:bg-gray-900 rounded-lg overflow-hidden">
       {/* Real Geographic Map */}
       <div className="w-full h-full relative">
         <img 
