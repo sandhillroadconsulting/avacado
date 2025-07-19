@@ -8,48 +8,48 @@ interface TalentCategory {
 
 const talentCategories: TalentCategory[] = [
   {
-    title: "Indian Talent",
+    title: "Tech Excellence",
     facts: [
       "120 unicorns scaled by Indian operators",
       "Largest digital workforce after the US",
-      "Cost-effective without compromise",
-      "Cross-border collaboration experience",
-      "3rd largest startup ecosystem after US & China"
+      "3rd largest startup ecosystem after US & China",
+      "Strong technical education from IITs & top universities",
+      "Leading in AI, blockchain, and software development"
     ],
     color: "#FF6B35" // Orange for India
   },
   {
-    title: "Southeast Asian Talent",
+    title: "Business Impact",
     facts: [
-      "Growing tech hubs in Singapore, Philippines & Vietnam",
-      "Strong English proficiency across the region",
-      "Competitive rates with high quality output",
-      "Timezone compatibility with Australia & Japan",
-      "Emerging fintech and e-commerce expertise"
+      "Cross-border collaboration experience",
+      "Proven track record with Fortune 500 companies",
+      "English proficiency and cultural adaptability",
+      "Time zone compatibility across global markets",
+      "Strong project management and delivery skills"
     ],
-    color: "#00B4D8" // Blue for Southeast Asia
+    color: "#FF6B35" // Orange for India
   },
   {
-    title: "Eastern European Talent",
+    title: "Cost & Quality",
     facts: [
-      "World-class developers from Poland, Romania & Ukraine",
-      "Strong technical education systems",
-      "EU timezone compatibility",
-      "Proven track record with US & European companies",
-      "Expertise in AI, blockchain, and cybersecurity"
+      "Cost-effective without compromise",
+      "Higher productivity with competitive rates",
+      "Quality-focused development processes",
+      "Scalable teams from junior to senior levels",
+      "Reduced overhead with maintained excellence"
     ],
-    color: "#7209B7" // Purple for Eastern Europe
+    color: "#FF6B35" // Orange for India
   },
   {
-    title: "Latin American Talent",
+    title: "Market Advantage",
     facts: [
-      "Nearshore advantage for US companies",
-      "Growing tech scenes in Mexico, Brazil & Argentina",
-      "Cultural alignment with North American markets",
-      "Competitive timezone overlap",
-      "Rising expertise in mobile and web development"
+      "Access to 1.4 billion person talent pool",
+      "Growing domestic market understanding",
+      "Innovation-driven startup ecosystem",
+      "Government support for tech initiatives",
+      "Strategic location for Asian market expansion"
     ],
-    color: "#F72585" // Pink for Latin America
+    color: "#FF6B35" // Orange for India
   }
 ];
 
@@ -86,14 +86,19 @@ const TalentCarousel = () => {
         
         <div className="relative p-8">
           <div className="flex items-center justify-between mb-6">
-            <h3 
-              className={`text-2xl font-bold transition-all duration-500 ${
-                isAnimating ? 'opacity-0 transform translate-y-2' : 'opacity-100 transform translate-y-0'
-              }`}
-              style={{ color: currentCategory.color }}
-            >
-              Why {currentCategory.title}?
-            </h3>
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-1">
+                Why Indian Talent?
+              </h3>
+              <h4 
+                className={`text-lg font-medium transition-all duration-500 ${
+                  isAnimating ? 'opacity-0 transform translate-y-2' : 'opacity-100 transform translate-y-0'
+                }`}
+                style={{ color: currentCategory.color }}
+              >
+                {currentCategory.title}
+              </h4>
+            </div>
             
             {/* Progress indicators */}
             <div className="flex space-x-2">
