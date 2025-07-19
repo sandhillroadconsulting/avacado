@@ -14,7 +14,7 @@ const RealWorldMap = ({ audience }: RealWorldMapProps) => {
   return (
     <div className="w-full h-[300px] sm:h-[450px] lg:h-[600px] relative bg-transparent sm:bg-gray-900 rounded-lg overflow-hidden">
       {/* Real Geographic Map */}
-      <div className="w-full h-full relative">
+      <div className="w-full h-full relative p-2 sm:p-0">
         <img 
           src="/europe_india_map.png" 
           alt="Cross-Border Talent Migration Map showing Europe in green and India in orange"
