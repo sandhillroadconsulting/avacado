@@ -18,10 +18,9 @@ const RealWorldMap = ({ audience }: RealWorldMapProps) => {
         <img 
           src="/europe_india_map.png" 
           alt="Cross-Border Talent Migration Map showing Europe in green and India in orange"
-          className="w-full h-full object-cover rounded-lg scale-90 sm:scale-85 lg:scale-90 origin-center"
+          className="w-full h-full object-cover rounded-lg scale-75 sm:scale-90 lg:scale-100 origin-center"
           style={{
-            filter: 'brightness(1.1) contrast(1.05)',
-            objectPosition: '57% 38%'
+            filter: 'brightness(1.1) contrast(1.05)'
           }}
         />
         
