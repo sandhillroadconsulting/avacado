@@ -321,7 +321,52 @@ function App() {
                 <rect width="100%" height="100%" fill="url(#artDecoMobile)" className="text-avocado"/>
               </svg>
             </div>
+            
+
           </div>
+        </div>
+
+        {/* Mobile Blinking Dots - Clustered & Lower */}
+        <div className="lg:hidden absolute inset-0 z-5 pointer-events-none">
+          {audience === 'employee' && (
+            <>
+              {/* Europe - Blue dots cluster */}
+              <div className="absolute top-[32%] left-[20%] w-1 h-1 bg-blue-400 rounded-full opacity-30 animate-ping"></div>
+              <div className="absolute top-[34%] left-[22%] w-1 h-1 bg-blue-400 rounded-full opacity-25 animate-pulse"></div>
+              <div className="absolute top-[32%] left-[24%] w-1 h-1 bg-blue-400 rounded-full opacity-35 animate-ping"></div>
+              <div className="absolute top-[34%] left-[18%] w-1 h-1 bg-blue-400 rounded-full opacity-30 animate-pulse"></div>
+              <div className="absolute top-[36%] left-[26%] w-1 h-1 bg-blue-400 rounded-full opacity-25 animate-ping"></div>
+              <div className="absolute top-[38%] left-[20%] w-1 h-1 bg-blue-400 rounded-full opacity-35 animate-pulse"></div>
+              
+              {/* India - Green dots cluster */}
+              <div className="absolute top-[35%] right-[30%] w-1 h-1 bg-green-400 rounded-full opacity-30 animate-pulse"></div>
+              <div className="absolute top-[37%] right-[32%] w-1 h-1 bg-green-400 rounded-full opacity-25 animate-ping"></div>
+              <div className="absolute top-[39%] right-[34%] w-1 h-1 bg-green-400 rounded-full opacity-35 animate-pulse"></div>
+              <div className="absolute top-[41%] right-[28%] w-1 h-1 bg-green-400 rounded-full opacity-30 animate-ping"></div>
+              <div className="absolute top-[43%] right-[36%] w-1 h-1 bg-green-400 rounded-full opacity-25 animate-pulse"></div>
+              <div className="absolute top-[45%] right-[30%] w-1 h-1 bg-green-400 rounded-full opacity-35 animate-ping"></div>
+            </>
+          )}
+          
+          {audience === 'employer' && (
+            <>
+              {/* Europe - Avocado dots cluster */}
+              <div className="absolute top-[32%] left-[20%] w-1 h-1 bg-avocado rounded-full opacity-30 animate-ping"></div>
+              <div className="absolute top-[34%] left-[22%] w-1 h-1 bg-avocado rounded-full opacity-25 animate-pulse"></div>
+              <div className="absolute top-[32%] left-[24%] w-1 h-1 bg-avocado rounded-full opacity-35 animate-ping"></div>
+              <div className="absolute top-[34%] left-[18%] w-1 h-1 bg-avocado rounded-full opacity-30 animate-pulse"></div>
+              <div className="absolute top-[36%] left-[26%] w-1 h-1 bg-avocado rounded-full opacity-25 animate-ping"></div>
+              <div className="absolute top-[38%] left-[20%] w-1 h-1 bg-avocado rounded-full opacity-35 animate-pulse"></div>
+              
+              {/* India - Orange dots cluster */}
+              <div className="absolute top-[35%] right-[30%] w-1 h-1 bg-orange-400 rounded-full opacity-30 animate-pulse"></div>
+              <div className="absolute top-[37%] right-[32%] w-1 h-1 bg-orange-400 rounded-full opacity-25 animate-ping"></div>
+              <div className="absolute top-[39%] right-[34%] w-1 h-1 bg-orange-400 rounded-full opacity-35 animate-pulse"></div>
+              <div className="absolute top-[41%] right-[28%] w-1 h-1 bg-orange-400 rounded-full opacity-30 animate-ping"></div>
+              <div className="absolute top-[43%] right-[36%] w-1 h-1 bg-orange-400 rounded-full opacity-25 animate-pulse"></div>
+              <div className="absolute top-[45%] right-[30%] w-1 h-1 bg-orange-400 rounded-full opacity-35 animate-ping"></div>
+            </>
+          )}
         </div>
 
         <div className="relative z-10 min-h-[80vh] lg:min-h-0 flex items-center">
@@ -489,11 +534,11 @@ function App() {
 
           {/* Premium Art Deco Company Carousel */}
           <div className="mt-8 sm:mt-12 max-w-3xl mx-auto">
-            <div className="relative group">
-              <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
-                clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
-              }}></div>
-              
+              <div className="relative group">
+                <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
+                  clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
+                }}></div>
+                
               <div className="relative p-4 sm:p-6">
                 {/* Art Deco title section */}
                 <div className="text-center mb-6">
@@ -556,8 +601,8 @@ function App() {
                             <h4 className="text-lg font-semibold text-white">
                               {company.name}
                             </h4>
-                          </div>
-                        </div>
+                      </div>
+                      </div>
                       ))}
                     </div>
                   </div>
@@ -588,7 +633,7 @@ function App() {
                     <div className="w-6 h-px bg-avocado"></div>
                   </div>
                 </div>
-                </div>
+              </div>
             </div>
           </div>
         </div>
