@@ -3,7 +3,7 @@ import RealWorldMap from './components/RealWorldMap';
 import AudienceToggle from './components/AudienceToggle';
 import type { Audience } from './components/AudienceToggle';
 import avocadoSeed from './assets/avaca.png';
-import animaLogo from './assets/anima.png';
+import animaLogo from './assets/Anima.png';
 import hasuraLogo from './assets/Hasura.png';
 import flipkartLogo from './assets/Flipkart.png';
 import skitaiLogo from './assets/skitai.png';
