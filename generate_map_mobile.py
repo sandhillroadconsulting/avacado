@@ -77,8 +77,8 @@ def create_mobile_map_with_red_dot(audience_type):
         
         # Create figure with wide landscape orientation for mobile (to show Americas to Asia)
         fig, ax = plt.subplots(1, 1, figsize=(16, 9))
-        fig.patch.set_facecolor('#2D3E2F')  # Slightly lighter dark green for mobile
-        ax.set_facecolor('#2D3E2F')
+        fig.patch.set_facecolor('#000000')  # Black ocean for mobile
+        ax.set_facecolor('#000000')
         
         # Set extent to show heavily zoomed-out world view with maximum context
         ax.set_xlim(-250, 250)  # Longitude (heavily extended for maximum zoom-out)
@@ -87,51 +87,40 @@ def create_mobile_map_with_red_dot(audience_type):
         # Plot the entire world map - all countries in blue first
         world.plot(ax=ax, color='#1a2e3a', edgecolor='#0f1f28', linewidth=0.3, alpha=0.7)
         
-        # Plot Europe in brighter green for mobile visibility
-        europe.plot(ax=ax, color='#7FB069', edgecolor='#6B9B47', linewidth=1.5, alpha=0.9)
+        # Create unified Europe boundary (dissolve individual countries into one shape)
+        europe_unified = europe.dissolve()
         
-        # Plot India in vibrant orange for mobile visibility
-        india.plot(ax=ax, color='#FF7F50', edgecolor='#FF6347', linewidth=1.5, alpha=0.9)
+        # Plot Europe with thin light green border only
+        europe_unified.plot(ax=ax, color='#1a2e3a', edgecolor='#7FB069', linewidth=0.8, alpha=0.7)
+        
+        # Plot India with thin light green border only  
+        india.plot(ax=ax, color='#1a2e3a', edgecolor='#7FB069', linewidth=0.8, alpha=0.7)
         
         # Add markers and labels for key cities
         berlin_lon, berlin_lat = 13.4050, 52.5200
         bengaluru_lon, bengaluru_lat = 77.5946, 12.9716
         
         if audience_type == 'employee':
-            # Red dot on Berlin for employee view
-            ax.scatter(berlin_lon, berlin_lat, c='#FF0000', s=120, marker='o', 
-                      edgecolor='white', linewidth=3, zorder=5, alpha=1.0)
+            # Red dot on Berlin for employee view (smaller)
+            ax.scatter(berlin_lon, berlin_lat, c='#FF0000', s=60, marker='o', 
+                      edgecolor='white', linewidth=1.5, zorder=5, alpha=1.0)
             
-            # Green marker for Bengaluru (source of talent)
-            ax.scatter(bengaluru_lon, bengaluru_lat, c='#00FF7F', s=80, marker='o', 
-                      edgecolor='white', linewidth=2, zorder=5, alpha=1.0)
+            # Green marker for Bengaluru (smaller)
+            ax.scatter(bengaluru_lon, bengaluru_lat, c='#00FF7F', s=40, marker='o', 
+                      edgecolor='white', linewidth=1, zorder=5, alpha=1.0)
             
-            # Labels
-            ax.text(berlin_lon, berlin_lat + 2, '🇩🇪 Berlin', ha='center', va='bottom', 
-                    fontsize=8, color='white', weight='bold',
-                    bbox=dict(boxstyle="round,pad=0.2", facecolor='#FF0000', alpha=0.95, edgecolor='white', linewidth=1))
-            
-            ax.text(bengaluru_lon, bengaluru_lat + 2, '🇮🇳 Bengaluru', ha='center', va='bottom', 
-                    fontsize=8, color='white', weight='bold',
-                    bbox=dict(boxstyle="round,pad=0.2", facecolor='#2D3E2F', alpha=0.95, edgecolor='white', linewidth=1))
+
         
         else:  # employer view
-            # Regular marker for Berlin
-            ax.scatter(berlin_lon, berlin_lat, c='#00FF7F', s=80, marker='o', 
-                      edgecolor='white', linewidth=2, zorder=5, alpha=1.0)
+            # Regular marker for Berlin (smaller)
+            ax.scatter(berlin_lon, berlin_lat, c='#00FF7F', s=40, marker='o', 
+                      edgecolor='white', linewidth=1, zorder=5, alpha=1.0)
             
-            # Red dot on Bengaluru for employer view
-            ax.scatter(bengaluru_lon, bengaluru_lat, c='#FF0000', s=120, marker='o', 
-                      edgecolor='white', linewidth=3, zorder=5, alpha=1.0)
+            # Red dot on Bengaluru for employer view (smaller)
+            ax.scatter(bengaluru_lon, bengaluru_lat, c='#FF0000', s=60, marker='o', 
+                      edgecolor='white', linewidth=1.5, zorder=5, alpha=1.0)
             
-            # Labels
-            ax.text(berlin_lon, berlin_lat + 2, '🇩🇪 Berlin', ha='center', va='bottom', 
-                    fontsize=8, color='white', weight='bold',
-                    bbox=dict(boxstyle="round,pad=0.2", facecolor='#2D3E2F', alpha=0.95, edgecolor='white', linewidth=1))
-            
-            ax.text(bengaluru_lon, bengaluru_lat + 2, '🇮🇳 Bengaluru', ha='center', va='bottom', 
-                    fontsize=8, color='white', weight='bold',
-                    bbox=dict(boxstyle="round,pad=0.2", facecolor='#FF0000', alpha=0.95, edgecolor='white', linewidth=1))
+
         
         # Create a curved connection path between cities
         connection_x = np.linspace(berlin_lon, bengaluru_lon, 60)
@@ -143,14 +132,14 @@ def create_mobile_map_with_red_dot(audience_type):
             t = i / (len(connection_y) - 1)
             connection_y[i] += curve_height * 4 * t * (1 - t)
         
-        # Plot connection line with prominent styling for global view
-        ax.plot(connection_x, connection_y, color='#FFFFFF', linewidth=5, 
-                alpha=0.8, zorder=3, linestyle='--')
+        # Plot connection line with thin styling (no blur)
+        ax.plot(connection_x, connection_y, color='#FFFFFF', linewidth=2, 
+                alpha=0.6, zorder=3, linestyle='--')
         
-        # Add airplane symbol with very small size for heavily zoomed-out view
+        # Add smaller airplane symbol 
         mid_idx = len(connection_x) // 2
         ax.text(connection_x[mid_idx], connection_y[mid_idx] + 1, '✈️', 
-                fontsize=12, ha='center', va='center', zorder=4)
+                fontsize=8, ha='center', va='center', zorder=4)
         
         # Remove all axes and borders for clean mobile look
         ax.set_xticks([])
@@ -166,7 +155,7 @@ def create_mobile_map_with_red_dot(audience_type):
         filename = f'public/europe_india_map_mobile_{audience_type}.png'
         plt.tight_layout()
         plt.savefig(filename, dpi=300, bbox_inches='tight', 
-                    facecolor='#2D3E2F', edgecolor='none', pad_inches=0)
+                    facecolor='#000000', edgecolor='none', pad_inches=0)
         
         print(f"Mobile-optimized {audience_type} map saved as '{filename}'")
         plt.close()
