@@ -1,6 +1,6 @@
 # avaca.do Landing Page
 
-A premium landing page for avaca.do - a cross-border talent migration platform connecting Indian engineers to European startups.
+A premium landing page for avaca.do - Connecting Elite Asian Talent to the Fastest Growing Companies in Europe.
 
 ## Features
 
