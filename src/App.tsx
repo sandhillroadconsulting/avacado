@@ -10,6 +10,7 @@ import skitaiLogo from './assets/skitai.png';
 import shiprocketLogo from './assets/Shiprocket.png';
 import kotaLogo from './assets/Kota.png';
 import cleoLogo from './assets/Cleo.png';
+import pactumaiLogo from './assets/pactumai.png';
 
 const content = {
   employer: {
@@ -174,6 +175,14 @@ const employeeCompanies = [
     textColor: "#FFFFFF",
     logo: cleoLogo,
     logoFallback: cleoLogo
+  },
+  {
+    name: "Pactum AI",
+    category: "",
+    bgColor: "#1F2937",
+    textColor: "#FFFFFF",
+    logo: pactumaiLogo,
+    logoFallback: pactumaiLogo
   },
   {
     name: "Kota",
