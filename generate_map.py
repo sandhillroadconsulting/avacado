@@ -47,8 +47,8 @@ def download_naturalearth_data():
     
     return shapefile_path
 
-def create_europe_india_map():
-    """Create a clean map showing Europe in green and India in orange"""
+def create_europe_india_map_with_audience(audience_type):
+    """Create a clean map showing Europe in green and India in orange for specific audience"""
     
     # Try to download and load world data
     shapefile_path = download_naturalearth_data()
@@ -58,7 +58,7 @@ def create_europe_india_map():
         return
     
     try:
-        print("Loading world data...")
+        print(f"Loading world data for {audience_type} view...")
         world = gpd.read_file(shapefile_path)
         
         # Define the countries we want to highlight
@@ -94,16 +94,21 @@ def create_europe_india_map():
         # Plot India in orange
         india.plot(ax=ax, color='#FF8C42', edgecolor='#E67E22', linewidth=2, alpha=0.9)
         
-        # Add markers for key cities
-        # Berlin coordinates - no marker, only label
+        # Add markers for key cities based on audience
         berlin_lon, berlin_lat = 13.4050, 52.5200
-        
-        # Bengaluru coordinates - simple green circle  
         bengaluru_lon, bengaluru_lat = 77.5946, 12.9716
-        ax.scatter(bengaluru_lon, bengaluru_lat, c='#2ecc71', s=100, marker='o', 
-                  edgecolor='white', linewidth=2, zorder=5)
         
-        # Add city labels with better styling
+        if audience_type == 'employee':
+            # Green dot on Bengaluru only for employee view
+            ax.scatter(bengaluru_lon, bengaluru_lat, c='#00FF7F', s=100, marker='o', 
+                      edgecolor='white', linewidth=2, zorder=5)
+        
+        else:  # employer view
+            # Green dot on Berlin only for employer view  
+            ax.scatter(berlin_lon, berlin_lat, c='#00FF7F', s=100, marker='o', 
+                      edgecolor='white', linewidth=2, zorder=5)
+        
+        # Consistent labels for both views - no colored backgrounds
         ax.text(berlin_lon, berlin_lat + 4, '🇩🇪 Berlin', ha='center', va='bottom', 
                 fontsize=16, color='white', weight='bold',
                 bbox=dict(boxstyle="round,pad=0.5", facecolor='black', alpha=0.8))
@@ -139,8 +144,6 @@ def create_europe_india_map():
         ax.spines['bottom'].set_visible(False)
         ax.spines['left'].set_visible(False)
         
-        # Title removed as requested
-        
         # Add legend with better positioning
         legend_elements = [
             plt.Rectangle((0, 0), 1, 1, facecolor='#A3C585', label='Europe'),
@@ -154,16 +157,19 @@ def create_europe_india_map():
         if not os.path.exists('public'):
             os.makedirs('public')
         
-        # Save the map
+        # Save the map with audience-specific filename
+        filename = f'public/europe_india_map_{audience_type}.png'
         plt.tight_layout()
-        plt.savefig('public/europe_india_map.png', dpi=300, bbox_inches='tight', 
+        plt.savefig(filename, dpi=300, bbox_inches='tight', 
                     facecolor='#01110c', edgecolor='none', pad_inches=0.1)
         
-        print("Clean map without title and white flight path saved as 'public/europe_india_map.png'")
+        print(f"Clean {audience_type} map saved as '{filename}'")
         plt.close()
         
     except Exception as e:
-        print(f"Error creating map: {e}")
+        print(f"Error creating map for {audience_type}: {e}")
 
 if __name__ == "__main__":
-    create_europe_india_map() 
+    # Generate both versions
+    create_europe_india_map_with_audience('employee')  # Green dot on Bengaluru only
+    create_europe_india_map_with_audience('employer')  # Green dot on Berlin only 

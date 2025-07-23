@@ -2,19 +2,20 @@ import { useState, useEffect } from 'react';
 import RealWorldMap from './components/RealWorldMap';
 import AudienceToggle from './components/AudienceToggle';
 import type { Audience } from './components/AudienceToggle';
+import avocadoSeed from './assets/avaca.png';
 
 const content = {
   employer: {
-    heading: "Build your dream team",
-    subheading: "Elite global talent, deployed instantly",
+    heading: "Build Your Dream Team",
+    subheading: "Elite Asian talent deployed instantly",
     cta: {
-      text: "Let's get on a call",
+      text: "Let's Get on a Call",
       link: "https://appt.link/meet-with-team-avacado-N2lER6GH/firstcall"
     }
   },
   employee: {
-    heading: "Work with Europe's best",
-    subheading: "From applications to relocation, we handle everything",
+    heading: "Work with Europe's Best",
+    subheading: "Join the teams building Europe's next unicorns.",
     cta: {
       text: "View Open Roles",
       link: "https://www.linkedin.com/company/avacadoo/jobs/?viewAsMember=true"
@@ -55,16 +56,6 @@ const employeeCards = [
     title: "Post-Hiring Support",
     summary: "We handle taxes, legal compliance, and timely payouts. You focus on your work—we've got the boring stuff.",
     content: "Our support doesn't end when you get hired. We manage all administrative tasks including tax compliance, legal documentation, and ensure timely salary payments. Our dedicated support team is always available to help you navigate any challenges, allowing you to focus entirely on your work and career growth."
-  },
-  {
-    title: "Relocation",
-    summary: "We handle everything for you — visas, taxes, residency, and legal authorization to work in Europe. It's plug-and-play.",
-    content: "Moving to Europe has never been easier. Our comprehensive relocation service covers visa applications, residency permits, tax registration, and all legal requirements for working in Europe. We provide step-by-step guidance and handle all paperwork, making your transition smooth and stress-free."
-  },
-  {
-    title: "Integration Support",
-    summary: "We help ensure cultural and performance fit. Replacements and feedback loops are in place if needed.",
-    content: "We don't just place you in a role – we ensure you thrive. Our integration support includes cultural orientation, performance feedback mechanisms, and ongoing check-ins. If there are any fit issues, we have replacement policies and continuous feedback loops to ensure both you and your employer are satisfied."
   }
 ];
 
@@ -125,38 +116,81 @@ const howItWorksSteps = [
   }
 ];
 
-const indianTalentCategories = [
+const employerCompanies = [
   {
-    title: "Market Leadership",
-    points: [
-      "120 unicorns scaled by Indian operators",
-      "3rd largest startup ecosystem after US & China",
-      "Largest digital workforce after the US"
-    ]
+    name: "Tracxn",
+    category: "Market Intelligence",
+    bgColor: "#1E40AF",
+    textColor: "#FFFFFF",
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tracxn.svg",
+    logoFallback: "https://logo.clearbit.com/tracxn.com"
   },
   {
-    title: "Technical Excellence", 
-    points: [
-      "Advanced technical expertise across domains",
-      "Strong problem-solving capabilities",
-      "Proven track record in global companies"
-    ]
+    name: "Hasura", 
+    category: "GraphQL Platform",
+    bgColor: "#7C3AED",
+    textColor: "#FFFFFF",
+    logo: "https://hasura.io/brand-assets/hasura-logo-primary-dark.svg",
+    logoFallback: "https://logo.clearbit.com/hasura.io"
   },
   {
-    title: "Business Value",
-    points: [
-      "Cost-effective without compromise",
-      "Cross-border collaboration experience",
-      "Strong English proficiency"
-    ]
+    name: "Skit.ai",
+    category: "Voice AI",
+    bgColor: "#DC2626",
+    textColor: "#FFFFFF",
+    logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjUwIiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNraXQuYWk8L3RleHQ+PC9zdmc+",
+    logoFallback: "https://logo.clearbit.com/skit.ai"
   },
   {
-    title: "Global Integration",
-    points: [
-      "Experience with international standards",
-      "Cultural adaptability and timezone flexibility",
-      "Remote-first work methodology"
-    ]
+    name: "Flipkart",
+    category: "E-commerce",
+    bgColor: "#F59E0B",
+    textColor: "#FFFFFF",
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/flipkart.svg",
+    logoFallback: "https://logo.clearbit.com/flipkart.com"
+  },
+  {
+    name: "Shiprocket",
+    category: "Logistics Tech",
+    bgColor: "#059669",
+    textColor: "#FFFFFF",
+    logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjYwIiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNoaXByb2NrZXQ8L3RleHQ+PC9zdmc+",
+    logoFallback: "https://logo.clearbit.com/shiprocket.in"
+  }
+];
+
+const employeeCompanies = [
+  {
+    name: "Kota",
+    category: "InsurTech",
+    bgColor: "#0F172A",
+    textColor: "#FFFFFF",
+    logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGV4dCB4PSI0MCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5LT1RBPC90ZXh0Pjwvc3ZnPg==",
+    logoFallback: "https://logo.clearbit.com/kota.co.uk"
+  },
+  {
+    name: "Anima Health", 
+    category: "HealthTech",
+    bgColor: "#BE185D",
+    textColor: "#FFFFFF",
+    logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjYwIiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFuaW1hIEhlYWx0aDwvdGV4dD48L3N2Zz4=",
+    logoFallback: "https://logo.clearbit.com/animahealth.com"
+  },
+  {
+    name: "Pactum AI",
+    category: "Contract Intelligence",
+    bgColor: "#1F2937",
+    textColor: "#FFFFFF",
+    logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjUwIiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlBhY3R1bSBBSTwvdGV4dD48L3N2Zz4=",
+    logoFallback: "https://logo.clearbit.com/pactum.com"
+  },
+  {
+    name: "Cleo",
+    category: "FinTech",
+    bgColor: "#7C2D92",
+    textColor: "#FFFFFF",
+    logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA4MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGV4dCB4PSI0MCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DTEVPPC90ZXh0Pjwvc3ZnPg==",
+    logoFallback: "https://logo.clearbit.com/meetcleo.com"
   }
 ];
 
@@ -169,17 +203,18 @@ function App() {
   
   const currentContent = content[audience];
   const currentCards = audience === 'employer' ? employerCards : employeeCards;
+  const currentCompanies = audience === 'employer' ? employerCompanies : employeeCompanies;
 
-  // Auto-scroll carousel for Indian talent categories
+  // Auto-scroll carousel for company names
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentCarouselIndex((prevIndex) => 
-        (prevIndex + 1) % indianTalentCategories.length
+        (prevIndex + 1) % currentCompanies.length
       );
-    }, 3000); // Change every 3 seconds (longer for more content)
+    }, 3000); // Change every 3 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentCompanies.length]);
 
   const toggleCard = (cardTitle: string) => {
     setExpandedCard(expandedCard === cardTitle ? null : cardTitle);
@@ -194,7 +229,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-avocado-dark via-avocado-dark to-gray-900 relative overflow-hidden">
+    <div className="min-h-screen bg-avocado-dark lg:bg-gradient-to-br lg:from-avocado-dark lg:via-avocado-dark lg:to-gray-900 relative overflow-hidden">
       {/* Simple Art Deco Background */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -223,33 +258,108 @@ function App() {
         </svg>
       </div>
 
-      {/* Clean Header */}
-      <header className="relative z-10 pt-8 pb-4">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between">
-            <div className="relative">
-              <div className="text-3xl font-bold text-white tracking-wider">
-                avaca<span className="text-avocado"><sub className="text-lg">🥑</sub>do</span>
+      {/* Clean Header with mobile map blending */}
+      <header className="relative z-20 pt-4 sm:pt-6 pb-2 sm:pb-4">
+        {/* Mobile gradient overlay for better blending with map */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="relative flex items-center justify-between">
+            <div className="relative flex-shrink-0">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-wider flex items-baseline">
+                <span style={{color: '#E6F4D4'}}>a</span>
+                <span style={{color: '#CFE8B0'}}>v</span>
+                <span style={{color: '#B6D88A'}}>a</span>
+                <span style={{color: '#97C264'}}>c</span>
+                <span style={{color: '#7CA348'}}>a</span>
+                <sub className="relative">
+                  <img 
+                    src={avocadoSeed} 
+                    alt="avocado seed" 
+                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4 object-contain"
+                    style={{display: 'inline-block'}}
+                  />
+                </sub>
+                <span style={{color: '#3E5A21'}}>d</span>
+                <span style={{color: '#97C264'}}>o</span>
               </div>
-              <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-avocado to-transparent"></div>
+              <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-avocado to-transparent opacity-60"></div>
             </div>
-            <AudienceToggle onChange={setAudience} />
+            
+            <div className="flex-shrink-0">
+              <AudienceToggle onChange={setAudience} />
+            </div>
           </div>
         </div>
       </header>
 
       {/* Clean Hero Section */}
-      <main className="relative z-10">
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <main className="relative z-10 min-h-screen lg:min-h-0">
+        {/* Mobile Background Map - Full Screen */}
+        <div className="lg:hidden absolute inset-0 z-0">
+          <div className="w-full h-full relative">
+            <img 
+              src={`/europe_india_map_mobile_${audience}.png`}
+              alt="Cross-Border Talent Migration Map for Mobile"
+              className="w-full h-full object-cover"
+              style={{
+                filter: 'brightness(0.7) contrast(1.1)',
+                objectPosition: '65% 20%'
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80"></div>
             
-            {/* Left Column - Hero Content */}
-            <div className="space-y-8 relative">
-              <div className="absolute -left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-avocado to-transparent opacity-30"></div>
+            {/* Art Deco Pattern Overlay for Mobile - same as main */}
+            <div className="absolute inset-0 opacity-5">
+              <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="artDecoMobile" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+                    <path d="M60 0L120 60L60 120L0 60Z" fill="currentColor" fillOpacity="0.1"/>
+                    <path d="M60 20L100 60L60 100L20 60Z" fill="currentColor" fillOpacity="0.05"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#artDecoMobile)" className="text-avocado"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 min-h-screen lg:min-h-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16 lg:py-16 w-full">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
               
-              <div className="space-y-6">
+              {/* Hero Content - Centered over map on mobile */}
+              <div className="space-y-8 lg:space-y-8 relative order-1 lg:order-1 text-center lg:text-left translate-y-[-100px] sm:translate-y-0 px-2 lg:px-0">
+                <div className="hidden lg:block absolute -left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-avocado to-transparent opacity-30"></div>
+                
+                {/* Enhanced Mobile text wrapper */}
+                <div className="lg:hidden bg-black/25 backdrop-blur-sm border border-white/15 p-6 rounded-2xl text-white text-center space-y-5 animate-fade-in-up shadow-2xl relative overflow-hidden">
+                  {/* Corner decorative accents */}
+                  <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-avocado/40 rounded-tl-2xl"></div>
+                  <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-avocado/40 rounded-tr-2xl"></div>
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-avocado/40 rounded-bl-2xl"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-avocado/40 rounded-br-2xl"></div>
+                  {/* Decorative top line */}
+                  <div className="w-16 h-px bg-gradient-to-r from-transparent via-avocado to-transparent mx-auto"></div>
+                  
+                  <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight drop-shadow-lg">
+                    <span className="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+                      {currentContent.heading}
+                    </span>
+                  </h1>
+                  
+                  <p className="text-lg sm:text-xl leading-relaxed font-light drop-shadow-md text-gray-200 max-w-sm mx-auto">
+                    {currentContent.subheading}
+                  </p>
+                  
+                  {/* Decorative bottom line */}
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-avocado to-transparent mx-auto"></div>
+                </div>
+
+                {/* Desktop text (unchanged) */}
+                <div className="hidden lg:block space-y-6">
                 <div className="relative">
-                  <h1 className="text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
+                    <h1 className="text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight">
                     {currentContent.heading}
                   </h1>
                   <div className="absolute -top-4 left-0 w-16 h-px bg-avocado"></div>
@@ -261,7 +371,28 @@ function App() {
                 </p>
               </div>
               
-              <div className="pt-6">
+                {/* Enhanced Mobile CTA */}
+                <div className="lg:hidden mt-8 py-4">
+                  <a
+                    href={currentContent.cta.link}
+                    className="group relative inline-flex items-center justify-center w-full px-8 py-4 bg-gradient-to-r from-avocado to-avocado-light hover:from-avocado-light hover:to-avocado text-white font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 backdrop-blur-sm border border-avocado/30"
+                  >
+                    {/* Button shine effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                    
+                    <span className="relative z-10">{currentContent.cta.text}</span>
+                    <svg className="ml-3 w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                    
+                    {/* Decorative corner accents */}
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-white/20 rounded-tl-xl"></div>
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-white/20 rounded-br-xl"></div>
+                  </a>
+                </div>
+
+                {/* Desktop CTA - original styling */}
+                <div className="hidden lg:block pt-6">
                 <a
                   href={currentContent.cta.link}
                   className="inline-flex items-center px-12 py-4 bg-gradient-to-r from-avocado to-avocado-light hover:from-avocado-light hover:to-avocado text-white font-semibold text-lg rounded-none transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 relative overflow-hidden group"
@@ -278,8 +409,8 @@ function App() {
               </div>
             </div>
             
-            {/* Right Column - Map */}
-            <div className="relative">
+              {/* Right Column - Map (Hidden on mobile, visible on desktop) */}
+              <div className="hidden lg:block relative order-2 lg:order-2">
               <div className="absolute -inset-8 border-2 border-avocado opacity-20" style={{
                 clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))'
               }}></div>
@@ -297,38 +428,42 @@ function App() {
             </div>
           </div>
         </div>
+        </div>
+        
+        {/* Smooth blend gradient into next section - mobile only */}
+        <div className="lg:hidden absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-avocado-dark pointer-events-none z-15"></div>
       </main>
 
       {/* Audience-Specific Cards Section */}
-      <section className="relative z-10 py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
+      <section className="relative z-10 py-12 sm:py-24 lg:pt-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               {audience === 'employer' ? 'For Employers' : 'For Talent'}
             </h2>
             <div className="w-16 h-1 bg-avocado mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {currentCards.map((card, index) => (
               <div key={index} className="relative group">
                 <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
                   clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
                 }}></div>
                 
-                <div className="relative p-6 cursor-pointer" onClick={() => toggleCard(card.title)}>
+                <div className="relative p-4 sm:p-6 cursor-pointer" onClick={() => toggleCard(card.title)}>
                   <div className="w-3 h-3 bg-avocado transform rotate-45 mb-4 relative">
                     <div className="absolute inset-0.5 bg-avocado-dark transform -rotate-45"></div>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-white mb-3">{card.title}</h3>
-                  <p className="text-gray-300 text-sm mb-4">{card.summary}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">{card.title}</h3>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">{card.summary}</p>
                   
                   <div className={`overflow-hidden transition-all duration-300 ${
                     expandedCard === card.title ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}>
                     <div className="pt-4 border-t border-gray-600">
-                      <p className="text-gray-200 leading-relaxed">{card.content}</p>
+                      <p className="text-gray-200 leading-relaxed text-sm">{card.content}</p>
                     </div>
                   </div>
                   
@@ -352,81 +487,169 @@ function App() {
             ))}
           </div>
 
-          {/* Why Indian Talent section for employers with moving carousel */}
-          {audience === 'employer' && (
-            <div className="mt-16 max-w-4xl mx-auto">
-              <div className="relative group">
-                <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
-                  clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
+          {/* Premium Art Deco Company Carousel */}
+          <div className="mt-16 sm:mt-20 max-w-5xl mx-auto">
+            <div className="relative">
+              {/* Elegant Art Deco outer frame */}
+              <div className="absolute -inset-4 opacity-30">
+                <div className="w-full h-full border-2 border-avocado" style={{
+                  clipPath: 'polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px))'
                 }}></div>
                 
-                <div className="relative p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">Why Indian Talent?</h3>
-                  
-                  {/* Moving Carousel */}
-                  <div className="relative">
-                    <div className="relative h-48 overflow-hidden">
-                      <div 
-                        className="flex transition-transform duration-500 ease-in-out h-full"
-                        style={{
-                          transform: `translateX(-${currentCarouselIndex * (100 / indianTalentCategories.length)}%)`,
-                          width: `${indianTalentCategories.length * 100}%`
-                        }}
-                      >
-                        {indianTalentCategories.map((category, index) => (
-                          <div 
-                            key={index}
-                            className="w-full h-full px-4"
-                            style={{ width: `${100 / indianTalentCategories.length}%` }}
-                          >
-                            <div className="relative group h-full">
-                              <div className="absolute inset-0 border border-avocado opacity-20 group-hover:opacity-40 transition-opacity duration-300" style={{
-                                clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))'
-                              }}></div>
-                              
-                              <div className="relative p-6 h-full flex flex-col justify-center">
-                                <div className="w-3 h-3 bg-avocado transform rotate-45 mb-4 relative">
-                                  <div className="absolute inset-0.5 bg-avocado-dark transform -rotate-45"></div>
-                                </div>
-                                
-                                <h4 className="text-xl font-semibold text-white mb-3">{category.title}</h4>
-                                
-                                <div className="space-y-2">
-                                  {category.points.map((point, pointIndex) => (
-                                    <div key={pointIndex} className="flex items-start space-x-3">
-                                      <div className="w-2 h-2 bg-avocado rounded-full mt-2 flex-shrink-0"></div>
-                                      <span className="text-gray-300 text-sm leading-relaxed">
-                                        {point}
-                                      </span>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
+                {/* Corner accent pieces */}
+                <div className="absolute -top-2 -left-2 w-12 h-12 border-l-4 border-t-4 border-avocado/60"></div>
+                <div className="absolute -top-2 -right-2 w-12 h-12 border-r-4 border-t-4 border-avocado/60"></div>
+                <div className="absolute -bottom-2 -left-2 w-12 h-12 border-l-4 border-b-4 border-avocado/60"></div>
+                <div className="absolute -bottom-2 -right-2 w-12 h-12 border-r-4 border-b-4 border-avocado/60"></div>
                       </div>
-                    </div>
+              
+              <div className="relative bg-gradient-to-br from-black/40 via-avocado-dark/20 to-black/40 backdrop-blur-md p-8 sm:p-12" style={{
+                clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))'
+              }}>
+                
+                {/* Art Deco title section */}
+                <div className="text-center mb-10">
+                  <div className="relative inline-block">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-wide">
+                      {audience === 'employer' ? 'Our Talent Pool' : 'Join Elite Companies'}
+                    </h3>
                     
-                    {/* Carousel indicators */}
-                    <div className="mt-6 flex justify-center space-x-2">
-                      {indianTalentCategories.map((_, index) => (
-                        <button
+                    {/* Art Deco underline design */}
+                    <div className="absolute -bottom-4 left-0 right-0 flex items-center justify-center space-x-2">
+                      <div className="w-8 h-px bg-gradient-to-r from-transparent to-avocado"></div>
+                      <div className="w-3 h-3 bg-avocado transform rotate-45"></div>
+                      <div className="w-16 h-px bg-avocado"></div>
+                      <div className="w-3 h-3 bg-avocado transform rotate-45"></div>
+                      <div className="w-8 h-px bg-gradient-to-l from-transparent to-avocado"></div>
+                    </div>
+                  </div>
+                  
+                  <p className="text-avocado/80 text-sm sm:text-base font-light mt-6 tracking-wider">
+                    {audience === 'employer' ? 'Premium companies trust us with their global expansion' : 'World-class organizations await your talent'}
+                  </p>
+                </div>
+
+                {/* Premium Company Carousel */}
+                <div className="relative">
+                  <div className="relative h-48 sm:h-40 overflow-hidden">
+                    <div 
+                      className="flex transition-transform duration-700 ease-out h-full"
+                      style={{
+                        transform: `translateX(-${currentCarouselIndex * (100 / currentCompanies.length)}%)`,
+                        width: `${currentCompanies.length * 100}%`
+                      }}
+                    >
+                      {currentCompanies.map((company, index) => (
+                        <div 
                           key={index}
-                          onClick={() => setCurrentCarouselIndex(index)}
-                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            index === currentCarouselIndex
-                              ? 'bg-avocado scale-125'
-                              : 'bg-gray-500 hover:bg-gray-400'
-                          }`}
-                        />
+                          className="h-full px-3 sm:px-4"
+                          style={{ width: `${100 / currentCompanies.length}%` }}
+                        >
+                          <div className="group h-full transform transition-all duration-500 hover:scale-105">
+                            {/* Company card with art deco styling */}
+                            <div 
+                              className="relative h-full rounded-2xl shadow-2xl overflow-hidden border border-white/10"
+                              style={{ backgroundColor: company.bgColor }}
+                            >
+                              {/* Art Deco background pattern */}
+                              <div className="absolute inset-0 opacity-10">
+                                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                  <defs>
+                                    <pattern id={`companyPattern${index}`} x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                                      <path d="M20 0L40 20L20 40L0 20Z" fill="currentColor" opacity="0.3"/>
+                                      <path d="M20 8L32 20L20 32L8 20Z" fill="currentColor" opacity="0.15"/>
+                                    </pattern>
+                                  </defs>
+                                  <rect width="100%" height="100%" fill={`url(#companyPattern${index})`} className="text-white"/>
+                                </svg>
+                              </div>
+
+                              {/* Gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20"></div>
+                              
+                                                             {/* Content */}
+                               <div className="relative z-10 h-full flex flex-col justify-center items-center p-6 text-center">
+                                 {/* Company logo */}
+                                 <div className="mb-4">
+                                   <div className="w-20 h-12 sm:w-24 sm:h-14 rounded-xl bg-white/95 flex items-center justify-center shadow-xl border-2 border-white/30 p-2 sm:p-3">
+                                     <img 
+                                       src={company.logo} 
+                                       alt={`${company.name} logo`}
+                                       className="max-w-full max-h-full object-contain filter brightness-0"
+                                       onError={(e) => {
+                                         // First fallback: try logoFallback
+                                         const img = e.target as HTMLImageElement;
+                                         if (img.src !== company.logoFallback) {
+                                           img.src = company.logoFallback;
+                                         } else {
+                                           // Final fallback: company initial
+                                           const parent = img.parentElement;
+                                           if (parent) {
+                                             parent.innerHTML = `<span class="text-2xl font-bold tracking-tight" style="color: ${company.bgColor}">${company.name.charAt(0)}</span>`;
+                                           }
+                                         }
+                                       }}
+                                     />
+                                   </div>
+                                 </div>
+                                
+                                {/* Company name */}
+                                <h4 className="text-lg sm:text-xl font-bold mb-2 leading-tight" style={{ color: company.textColor }}>
+                                  {company.name}
+                                </h4>
+                                
+                                {/* Category badge */}
+                                <div className="bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                                  <span className="text-xs sm:text-sm font-medium opacity-90" style={{ color: company.textColor }}>
+                                    {company.category}
+                                  </span>
+                                </div>
+
+                                {/* Art Deco corner accents */}
+                                <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-white/30 rounded-tl-lg"></div>
+                                <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-white/30 rounded-tr-lg"></div>
+                                <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-white/30 rounded-bl-lg"></div>
+                                <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-white/30 rounded-br-lg"></div>
+                              </div>
+
+                              {/* Hover glow effect */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                      </div>
+                      </div>
                       ))}
                     </div>
+                  </div>
+                  
+                  {/* Art Deco carousel indicators */}
+                  <div className="mt-8 flex justify-center items-center space-x-3">
+                    {currentCompanies.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentCarouselIndex(index)}
+                        className={`transition-all duration-300 ${
+                          index === currentCarouselIndex
+                            ? 'w-8 h-2 bg-avocado rounded-full shadow-lg shadow-avocado/50'
+                            : 'w-2 h-2 bg-gray-500 rounded-full hover:bg-gray-400 hover:scale-125'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Art Deco bottom accent */}
+                <div className="mt-8 flex justify-center">
+                  <div className="flex items-center space-x-2 opacity-60">
+                    <div className="w-6 h-px bg-avocado"></div>
+                    <div className="w-1 h-1 bg-avocado rounded-full"></div>
+                    <div className="w-4 h-px bg-avocado"></div>
+                    <div className="w-1 h-1 bg-avocado rounded-full"></div>
+                    <div className="w-6 h-px bg-avocado"></div>
                   </div>
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
